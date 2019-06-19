@@ -1,0 +1,7 @@
+.choice {
+    color:red;
+}
+
+.choice:hover {
+    cursor: grab;
+}
