@@ -51,7 +51,7 @@ function random(a, b) {
     $("#second").text("10"); 
      $("#areaDisplay").empty();
      str = str + " " + listQ[QnA.A][0];
-     $("#areaDisplay").append($("<div>").text(str));
+     $("#areaDisplay").append($('<div id=answer>').text(str));
     //  $("#areaDisplay").append($("<div>").text(listQ[QnA.A][0]));
  }
 
@@ -60,14 +60,16 @@ function random(a, b) {
  function clickToStart() {
      
      $("#second").text("10"); 
-     $("#messageQ").text("Click to restart the game :");
+     $("#messageQ").text("Click to start again :");
      $("#areaDisplay").empty();
      
      var wins = $("<div>").text("Correct Answers : " + iCorrect);
      var losses = $("<div>").text("Wrong Answers : " + iWrong);
      var timeout = $("<div>").text("No Answers : " + iNoAnswer);
+     var btn = $('<button type="button" class="btn btn-primary btn-lg btn-block" onclick="init()">').text("Start a New Quiz");
+    //  <button type="button" class="btn btn-primary btn-lg">Large button</button>
      
-     $("#areaDisplay").append(wins, losses, timeout, '<button onclick="init()">Click me</button>');
+     $("#areaDisplay").append(wins, losses, timeout, btn);
      iQuestion=0;
      iCorrect=0;
      iWrong=0;
@@ -113,7 +115,7 @@ function init() {
 
     for (var i=0; i<maxChoice; i++) {
  // <div class = "choice" id ="choice-i"> string (ex. Litcoin ...) </div>       
-       var str = '<div class="choice" id = "choice-' + i + '"> ' + listQ[QnA.Q[i]][0] + "</div>";
+       var str = '<div class="choice" id = "choice-' + i + '"> ' + listQ[QnA.Q[i]][0] + "</div><div>  <div>";
        console.log(str);
        $("#areaDisplay").append( str  ); 
     }    
