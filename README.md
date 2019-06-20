@@ -1,4 +1,4 @@
-# Crypto Awareness Quiz
+# Crypto Symbo Quiz
 
 [click here to play](https://jasonjpeng.github.io/TriviaGame/)
 
