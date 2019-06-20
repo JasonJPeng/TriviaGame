@@ -35,9 +35,10 @@ div {
 
 #banner {
     text-align: center;
-    background-color: lightslategray;
+    background-color: cornflowerblue;
     color:#ffffff;
     font-size:30pt;
+    padding: 20px;
     /* background-image: url("assets/images/blue.jpeg"); */
     /* background-size: cover; */
 }

@@ -30,7 +30,18 @@ var listQ = [
     ["Siacoin", "https://s2.coinmarketcap.com/static/img/coins/32x32/1042.png"],
     ["WAX", "https://s2.coinmarketcap.com/static/img/coins/32x32/2300.png"],
     ["Zcoin", "https://s2.coinmarketcap.com/static/img/coins/32x32/1414.png"],
-    ["Litecoin", "https://s2.coinmarketcap.com/static/img/coins/32x32/2.png"]
+    ["Litecoin", "https://s2.coinmarketcap.com/static/img/coins/32x32/2.png"],
+    ["VeChain", "https://s2.coinmarketcap.com/static/img/coins/32x32/3077.png"],
+    ["USD Coin", "https://s2.coinmarketcap.com/static/img/coins/32x32/3408.png"],
+    ["Bit Torrent", "https://s2.coinmarketcap.com/static/img/coins/32x32/3718.png"],
+    ["Decred", "https://s2.coinmarketcap.com/static/img/coins/32x32/1168.png"],
+    ["Lisk", "https://s2.coinmarketcap.com/static/img/coins/32x32/1214.png"],
+    ["Waves", "https://s2.coinmarketcap.com/static/img/coins/32x32/1274.png"],
+    ["Bitcoin Diamond", "https://s2.coinmarketcap.com/static/img/coins/32x32/2222.png"],
+    ["Huobi Token", "https://s2.coinmarketcap.com/static/img/coins/32x32/2502.png"],
+    ["Byteoin", "https://s2.coinmarketcap.com/static/img/coins/32x32/372.png"],
+    ["Komodo", "https://s2.coinmarketcap.com/static/img/coins/32x32/1521.png"],
+    ["Dai", "https://s2.coinmarketcap.com/static/img/coins/32x32/2308.png"]
    ];
 
    
