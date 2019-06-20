@@ -1,10 +1,12 @@
 2019-06-19: The Game is playable now
 
 ToDo: 
-* No repetitive choice, no repetitive question
+(Done, but may have repetitive questions) No repetitive choice, no repetitive question 
 (DONE) Make number of choice changable (it's 4 now)
 (DONE) show the correct answer after player makes a choice
 (DONE) automatically goes to the next question
 (DONE) show the final result and ahve a bottom to click to restart
 
 * presenation
+
+2019-06-19: Added Question # 1 2 3 

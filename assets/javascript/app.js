@@ -36,7 +36,7 @@ var listQ = [
    
 var idInterval, count;
 var QnA = {};
-var totalGame = 3, maxTime = 10, maxChoice = 6, waitingTime = 5;
+var totalGame = 10, maxTime = 10, maxChoice = 6, waitingTime = 5;
 var iCorrect=0,iWrong=0, iNoAnswer=0, iQuestion=0;
 // var QnA = {
 //     Q: [4,5,10,11],
@@ -89,15 +89,25 @@ function init() {
         Q:[],
         A:0
     };
-    for (var i=0; i<maxChoice; i++) {
-        QnA.Q.push(random(0,listQ.length-1));
-    }  
+    // for (var i=0; i<maxChoice; i++) {
+    //     QnA.Q.push(random(0,listQ.length-1));
+    // }  
+    
+    QnA.Q = [];
+    do {
+      var x = random(0, listQ.length-1);
+      if (QnA.Q.indexOf(x)<0) {
+          QnA.Q.push(x);
+      }
+    } while(QnA.Q.length < maxChoice);
+
     QnA.A = QnA.Q[random(0,maxChoice-1)];
 
     
     
     var urlImg = listQ[QnA.A][1]; 
     // console.log(urlImg);
+    $("#qNumber").html("Question # " + iQuestion + ". ");
     $("#messageQ").html('<img src = ' + urlImg  + ">");
     $("#areaDisplay").empty();
 
