@@ -36,8 +36,8 @@ var listQ = [
    
 var idInterval, count;
 var QnA = {};
-var totalGame = 10, maxTime = 10;
-var iCorrect=0,iWrong=0, iNoAnswer=0;
+var totalGame = 3, maxTime = 10, maxChoice = 6, waitingTime = 5;
+var iCorrect=0,iWrong=0, iNoAnswer=0, iQuestion=0;
 // var QnA = {
 //     Q: [4,5,10,11],
 //     A: 5
@@ -47,28 +47,61 @@ function random(a, b) {
     return  Math.floor(Math.random() * (b - a + 1)) + a;
  }
 
+ function showResult(str) {
+    $("#second").text("10"); 
+     $("#areaDisplay").empty();
+     str = str + " " + listQ[QnA.A][0];
+     $("#areaDisplay").append($("<div>").text(str));
+    //  $("#areaDisplay").append($("<div>").text(listQ[QnA.A][0]));
+ }
+
+ // Click a botton to start a new game
+
+ function clickToStart() {
+     
+     $("#second").text("10"); 
+     $("#messageQ").text("Click to restart the game :");
+     $("#areaDisplay").empty();
+     
+     var wins = $("<div>").text("Correct Answers : " + iCorrect);
+     var losses = $("<div>").text("Wrong Answers : " + iWrong);
+     var timeout = $("<div>").text("No Answers : " + iNoAnswer);
+     
+     $("#areaDisplay").append(wins, losses, timeout, '<button onclick="init()">Click me</button>');
+     iQuestion=0;
+     iCorrect=0;
+     iWrong=0;
+     iNoAnswer=0;
+     
+
+ }
+
 
 function init() {
 
- // pick 4 choices randomly
+    if (++iQuestion > totalGame) {
+        clickToStart();
+        return; // 
+    }  
+    
 
     QnA = {
         Q:[],
         A:0
     };
-    for (var i=0; i<4; i++) {
+    for (var i=0; i<maxChoice; i++) {
         QnA.Q.push(random(0,listQ.length-1));
     }  
-    QnA.A = QnA.Q[random(0,3)];
+    QnA.A = QnA.Q[random(0,maxChoice-1)];
 
     
     
     var urlImg = listQ[QnA.A][1]; 
     // console.log(urlImg);
     $("#messageQ").html('<img src = ' + urlImg  + ">");
-    $("#areaDisplay").text("");
+    $("#areaDisplay").empty();
 
-    for (var i=0; i<4; i++) {
+    for (var i=0; i<maxChoice; i++) {
  // <div class = "choice" id ="choice-i"> string (ex. Litcoin ...) </div>       
        var str = '<div class="choice" id = "choice-' + i + '"> ' + listQ[QnA.Q[i]][0] + "</div>";
        console.log(str);
@@ -78,31 +111,58 @@ function init() {
     idInterval = setInterval(function (){
        $("#second").text(--count);
        if (count < 0) {
+           iNoAnswer++;
            clearInterval(idInterval);
-           alert("Time's OPut");
-        //    init();
+        //    alert("Time's Out");
+           showResult("Time Out ! The answer is :");
+           setTimeout(init, waitingTime *1000)
        }
-    }, 1000)
+    }, 1000);
+
+    $(".choice").on("click", function () {
+        var ans = parseInt($(this).attr("id").split("-").pop());
+        console.log(ans);
+        if (QnA.Q[ans] === QnA.A) {
+            // alert("Good");
+            iCorrect++;
+            clearInterval(idInterval);
+            showResult("Correct. The answer is :")
+        } else {
+            // alert("wrong");
+            iWrong++;
+            clearInterval(idInterval);
+            showResult("Wrong answer! The correct answer is :");
+        }
+        setTimeout(init, waitingTime *1000)
+     })
+
+
+
 }
 // ===============================================================================================
 // ===============================================================================================
 // ===============================================================================================
 $(document).ready(function() { //  Beginning of jQuery
 
-init();
+    init();
 
-$(".choice").on("click", function () {
-    var ans = parseInt($(this).attr("id").split("-").pop());
-    if (QnA.Q[ans] === QnA.A) {
-        alert("Good");
-        clearInterval(idInterval);
-        // init();
-    } else {
-        alert("wrong");
-        clearInterval(idInterval);
-        // init();
-    }
- })
+// $(".choice").on("click", function () {
+//     var ans = parseInt($(this).attr("id").split("-").pop());
+//     console.log(ans);
+//     if (QnA.Q[ans] === QnA.A) {
+//         alert("Good");
+//         clearInterval(idInterval);
+        
+//         // init();
+//     } else {
+//         alert("wrong");
+//         clearInterval(idInterval);
+        
+//         // init();
+//     }
+//  })
+
+ 
 
 })
 // ===============================================================================================

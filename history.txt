@@ -2,7 +2,9 @@
 
 ToDo: 
 * No repetitive choice, no repetitive question
-* Make number of choice changable (it's 4 now)
-* show the correct answer after player makes a choice
-* automatically goes to the next question
-* show the final result and ahve a bottom to click to restart
+(DONE) Make number of choice changable (it's 4 now)
+(DONE) show the correct answer after player makes a choice
+(DONE) automatically goes to the next question
+(DONE) show the final result and ahve a bottom to click to restart
+
+* presenation
